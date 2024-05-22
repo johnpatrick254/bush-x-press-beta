@@ -1,8 +1,11 @@
 import React from 'react';
 import FontAwesome from '@expo/vector-icons/FontAwesome';
 import { Tabs } from 'expo-router';
+import "../../global.css"
+import Container from '@/components/shared/container';
 export default function TabLayout() {
     return (
+        <Container>
         <Tabs screenOptions={{
             tabBarActiveTintColor: '#AA14F0', tabBarStyle: {
                 height: 70,
@@ -36,7 +39,7 @@ export default function TabLayout() {
                 options={{
                     title: 'Favorites',
                     headerShown: false,
-                    tabBarIcon: ({ color }) => <FontAwesome size={28} name="heart" color={color} />,
+                    tabBarIcon: ({ color }) => <FontAwesome size={28} name="heart-o" color={color} />,
                 }}
             />
             <Tabs.Screen
@@ -48,5 +51,6 @@ export default function TabLayout() {
                 }}
             />
         </ Tabs>
+        </Container>
     );
 }
