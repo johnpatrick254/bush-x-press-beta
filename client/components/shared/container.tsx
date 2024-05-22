@@ -1,9 +1,9 @@
 import { View } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context';
-import React from 'react'
-const Container = ({children}:{children:React.ReactNode}) => {
+
+const Container = ({ children }: { children: React.ReactNode }) => {
     return (
-        <SafeAreaView style={{flex:1}}>
+        <SafeAreaView style={{ flex: 1 }}>
             <View className=' flex-1'>
                 {children}
             </View>
