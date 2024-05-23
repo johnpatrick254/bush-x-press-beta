@@ -6,7 +6,7 @@ import ProductBrowser from '@/components/dashboard/browse.dashboard';
 export default function Tab() {
     return (
         <View className="bg-white flex-1 justify-start items-center p-xm">
-           <ProductBrowser/>
+            <ProductBrowser />
             <StatusBar style="auto" />
         </View>
     );

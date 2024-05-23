@@ -1,6 +1,7 @@
 import { FontAwesome6 } from "@expo/vector-icons";
 import { Dimensions, Text, View } from 'react-native';
 import Carousel from 'react-native-reanimated-carousel';
+import CustomCarousel from "../shared/carousel";
 
 
 export default function ProductBrowser() {
@@ -14,21 +15,9 @@ export default function ProductBrowser() {
       </View>
 
       <View className="justify-between items-center py-xm">
-        <Carousel
-                loop
-                width={width}
-                height={width / 2}
-                autoPlay={true}
-                data={[...new Array(6).keys()]}
-                scrollAnimationDuration={2000}
-                renderItem={({ index }) => (
-                    <View className="bg-red-400 flex-1 justify-center items-center mx-3 rounded-3xl">
-                        <Text style={{ textAlign: 'center', fontSize: 30 }}>
-                            {index}
-                        </Text>
-                    </View>
-                )}
-            />
+       <CustomCarousel
+       data={[ ...new Array(6).keys()]}
+       />
       </View>
 
     </View>
