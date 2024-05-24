@@ -1,18 +1,12 @@
 import { FontAwesome6 } from "@expo/vector-icons";
 import { Dimensions, Text, View } from 'react-native';
 import CustomCarousel from "../shared/carousel";
-
-const electronics = require("../../assets/images/Electronics-in-Japan-1024x576.png")
-const men = require("../../assets/images/medium-shot-boy-posing-with-monochrome-outfit.jpg")
-const women = require("../../assets/images//studio-shot-pretty-black-woman-with-white-shopping-bag-standing-yellow-background-trendy-spring-fashionable-look.jpg")
-const jewelry = require("../../assets/images/Engagement_Ring1_1920x.webp")
+import electronics from "../../assets/images/Electronics-in-Japan-1024x576.png"
+import men from "../../assets/images/2151044509.jpg"
+import women from "../../assets/images//studio-shot-pretty-black-woman-with-white-shopping-bag-standing-yellow-background-trendy-spring-fashionable-look.jpg"
+import jewelry from "../../assets/images/Engagement_Ring1_1920x.webp";
 
 const categories = [
-  {
-    name: "Mens clothing",
-    url: men
-  },
-
   {
     name: "Womens clothing",
     url: women
@@ -22,10 +16,17 @@ const categories = [
     name: "Electronics",
     url: electronics
   },
-
+  {
+    name: "Jewelry",
+    url: jewelry
+  },
+  {
+    name: "Mens clothing",
+    url: men
+  },
 ]
 export default function ProductBrowser() {
-  const width = Dimensions.get('window').width - 20;
+  const width = Dimensions.get('window').width - 10;
   return (
     <View className="w-full h-96 py-2">
 
