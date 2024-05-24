@@ -12,6 +12,7 @@
     "**/*.ts",
     "**/*.tsx",
     "expo-env.d.ts",
-    "tailwind.config.js"
+    "tailwind.config.js",
+    ".expo/types/**/*.ts"
   ]
 }
