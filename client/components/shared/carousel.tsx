@@ -7,7 +7,7 @@ import { View } from "react-native";
 type CarouselProps = {
     data: any[],
     width: number,
-    viewCount?: number,
+    viewCount?: number
     autoPlay?: boolean,
     snapDirection?: "left" | "right",
     loop?: boolean,
@@ -45,11 +45,11 @@ const CustomCarousel: React.FC<CarouselProps> = ({
                 loop={loop}
                 autoPlay={autoPlay}
                 autoPlayReverse={autoPlayReverse}
-                scrollAnimationDuration={2000}
+                scrollAnimationDuration={3000}
                 data={data}
                 modeConfig={{
                     snapDirection,
-                    stackInterval: mode === "vertical-stack" ? 8 : 18,
+                    stackInterval: mode === "vertical-stack" ? 5 : 10,
                 }}
                 customConfig={() => ({ type: "positive", viewCount })}
                 onSnapToItem={onSnapToItem}
@@ -58,7 +58,7 @@ const CustomCarousel: React.FC<CarouselProps> = ({
                         url={item.url}
                         key={index}
                         width={width}
-                        height={100}
+                        height={width}
                         entering={FadeInRight.delay(
                             (viewCount - index) * 100,
                         ).duration(200)}
@@ -70,7 +70,7 @@ const CustomCarousel: React.FC<CarouselProps> = ({
                     <View
                         key={index}
                         className={`w-2.5 h-2.5 rounded-full mx-1 ${index === currentIndex ? 'bg-black' : 'bg-gray-400'}`}
-                    />
+                    ></View>
                 ))}
             </View>
         </View>

@@ -6,7 +6,7 @@ export default function CarouselCard({ url, width, height }: { url: string, widt
     <View className='flex-1 '>
       <Image
         source={url as unknown as { uri: string }}
-        className='w-full h-full rounded-md '
+        className='w-full h-full rounded-lg '
       />
     </View>
   )
