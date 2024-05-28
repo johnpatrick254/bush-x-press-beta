@@ -1,4 +1,4 @@
-import { View, Text, Image, TouchableOpacity } from 'react-native'
+import { View, Text, Image, TouchableOpacity,} from 'react-native'
 import React from 'react'
 import { FontAwesome6 } from '@expo/vector-icons'
 
@@ -9,11 +9,11 @@ type ProductCartType = {
   price: number
 }
 
+
 const ProductCard = ({image, title, category, price}: ProductCartType) => {
-  
 
   return (
-    <View className='w-[170px] h-[270px]'>
+    <TouchableOpacity style={{width:'47%'}} className=' h-[270px]'>
       <View className='w-full h-52 relative'>
       <Image source={image} className='w-full h-full rounded-3xl'/>
         <TouchableOpacity className='absolute flex items-center  justify-center top-4 right-4 h-10 w-10 rounded-full p-2 bg-[#e3e3ee42]'>
@@ -25,7 +25,7 @@ const ProductCard = ({image, title, category, price}: ProductCartType) => {
         <Text className='text-sm '>{category}</Text>
         <Text className='text-lg font-bold'>$ {price}</Text>
       </View>
-    </View>
+    </TouchableOpacity>
   )
 }
 
