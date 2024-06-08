@@ -23,7 +23,7 @@ const Login = () => {
   })
 
   const onSubmit = (data: any) => {
-    const validatedData = formSchema.parse(data)
+    const validatedData = formSchema.parse(data);
     console.log(validatedData)
   }
 
@@ -40,7 +40,7 @@ const Login = () => {
       name={'password'}
       placeholder='placeholder'
       />
-      <TouchableOpacity onPress={handleSubmit(onSubmit)}>Submit</TouchableOpacity>
+      <TouchableOpacity onPress={handleSubmit(onSubmit)}><Text>Submit</Text></TouchableOpacity>
     </View>
   )
 }

@@ -8,8 +8,7 @@ import 'react-native-reanimated';
 import "../global.css";
 import {GestureHandlerRootView} from "react-native-gesture-handler"
 import { useColorScheme } from '@/components/useColorScheme';
-import { initializeApp } from "firebase/app";
-import { getAnalytics } from "firebase/analytics";
+
 
 // Import your global CSS file
 import "../global.css"
@@ -27,6 +26,8 @@ export const unstable_settings = {
 
 // Prevent the splash screen from auto-hiding before asset loading is complete.
 SplashScreen.preventAutoHideAsync();
+
+
 
 export default function RootLayout() {
   const [loaded, error] = useFonts({
@@ -54,20 +55,6 @@ export default function RootLayout() {
 
 function RootLayoutNav() {
   const colorScheme = useColorScheme();
-
-const firebaseConfig = {
-  apiKey: "AIzaSyCoeb0z0BbCAfc0kMGD1lqhbl6P3TA6rt8",
-  authDomain: "bush-xpress.firebaseapp.com",
-  projectId: "bush-xpress",
-  storageBucket: "bush-xpress.appspot.com",
-  messagingSenderId: "393304015403",
-  appId: "1:393304015403:web:f4a2c8c3a26ca75526a06e",
-  measurementId: "G-G6V1RPE95T"
-};
-
-const app = initializeApp(firebaseConfig);
-const analytics = getAnalytics(app);
-
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <AuthProvider>
@@ -75,7 +62,6 @@ const analytics = getAnalytics(app);
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
-        <Stack.Screen name="(auths)" options={{headerShown: false}} />
       </Stack>
       </GestureHandlerRootView>
       </AuthProvider>
