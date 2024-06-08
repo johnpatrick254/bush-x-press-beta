@@ -7,7 +7,7 @@ import { useEffect } from 'react';
 import 'react-native-reanimated';
 import "../global.css";
 import {GestureHandlerRootView} from "react-native-gesture-handler"
-import { useColorScheme } from '@/components/useColorScheme';
+import { useColorScheme } from "nativewind";
 
 
 // Import your global CSS file
@@ -54,7 +54,7 @@ export default function RootLayout() {
 }
 
 function RootLayoutNav() {
-  const colorScheme = useColorScheme();
+  const {colorScheme} = useColorScheme();
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <AuthProvider>

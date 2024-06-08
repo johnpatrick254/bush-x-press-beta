@@ -1,5 +1,6 @@
 {
   "expo": {
+    "runtimeVersion": "1.0.0",
     "name": "cleint",
     "slug": "cleint",
     "version": "1.0.0",
