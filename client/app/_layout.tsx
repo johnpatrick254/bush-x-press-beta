@@ -75,6 +75,7 @@ const analytics = getAnalytics(app);
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
+        <Stack.Screen name="(auths)" options={{headerShown: false}} />
       </Stack>
       </GestureHandlerRootView>
       </AuthProvider>

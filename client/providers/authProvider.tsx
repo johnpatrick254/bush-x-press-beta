@@ -17,8 +17,7 @@ export const AuthProvider = ({ children }: { children: ReactNode }) => {
             setUser(user)
 
         } else {
-            // User is signed out
-            // ...
+            setUser(null)
         }
     });
 
