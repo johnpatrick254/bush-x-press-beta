@@ -1,25 +1,22 @@
 import React from 'react';
 import { useColorScheme } from "nativewind";
 import { TouchableOpacity } from 'react-native';
-import { FontAwesome5 } from '@expo/vector-icons';
-import { View, Text } from "@/components/Themed";
-
-
+import { View } from "@/components/Themed";
+import Feather from '@expo/vector-icons/Feather';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
 
 export default function ThemeToggle() {
     const { colorScheme, toggleColorScheme } = useColorScheme();
 
     return (
         <View
-           
-            className="flex  w-12 h-12 justify-center"
+            className="block rounded-sm border-3 border-foreground ring-1 m-5 w-20 h-20 p-4 bg-blue-700"
         >
             <TouchableOpacity
-                className="dark:text-white"
                 onPress={toggleColorScheme}
             >
-                {colorScheme === "light" ? <FontAwesome5 name="moon" size={35}  /> : <FontAwesome5 name="sun" size={35} />}
-                </TouchableOpacity>
+                {colorScheme === "light" ? <MaterialCommunityIcons name="moon-waxing-crescent" size={35} /> : <Feather name="sun" color={"white"} size={35} />}
+            </TouchableOpacity>
         </View>
     );
 }
