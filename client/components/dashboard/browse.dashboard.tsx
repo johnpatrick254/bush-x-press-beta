@@ -1,5 +1,7 @@
 import { FontAwesome6 } from "@expo/vector-icons";
-import { Dimensions, FlatList, ScrollView, Text, TouchableOpacity, View } from 'react-native';
+import { Dimensions, FlatList, ScrollView, TouchableOpacity } from 'react-native';
+import { View, Text } from "@/components/Themed";
+
 import CustomCarousel from "../shared/carousel";
 import electronics from "../../assets/images/Electronics-in-Japan-1024x576.png"
 import men from "../../assets/images/2151044509.jpg"
@@ -37,7 +39,7 @@ export default function ProductBrowser() {
   return (
     <View className="w-full h-max px-5">
       <View className="flex flex-row w-full justify-between items-center  my-md p-xm">
-        <Text className="text-2xl font-bold">Browse Collections</Text>
+        <Text className="text-2xl text-primary font-bold">Browse Collections</Text>
         <TouchableOpacity><FontAwesome6 size={28} name="heart" /></TouchableOpacity>
       </View>
 

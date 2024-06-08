@@ -1,4 +1,4 @@
-import { View, Text,Alert } from 'react-native'
+import { Text, View } from '@/components/Themed';
 import React from 'react'
 import FormInput from '@/components/shared/FormInput'
 import { TouchableOpacity } from 'react-native-gesture-handler'
@@ -28,8 +28,8 @@ const Login = () => {
   }
 
   return (
-    <View className='bg-background dark:bg-red-500'>
-      <Text className="text-primary dark:text-red-600">Login Form</Text>
+    <View className='bg-background '>
+      <Text className="text-primary ">Login Form</Text>
       <FormInput
         control={control}
         name={'email'}

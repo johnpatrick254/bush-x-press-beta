@@ -1,4 +1,4 @@
-import { View, Text } from 'react-native'
+import { View, Text } from "@/components/Themed";
 import React from 'react'
 import { Control, Controller, FieldValues } from 'react-hook-form'
 import { TextInput } from 'react-native'

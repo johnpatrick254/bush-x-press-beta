@@ -1,5 +1,6 @@
 import React from 'react'
-import { View, Image } from 'react-native'
+import { View } from "@/components/Themed";
+import { Image } from 'react-native'
 
 export default function CarouselCard({ url, width, height }: { url: string, width: number, height: number }) {
   return (

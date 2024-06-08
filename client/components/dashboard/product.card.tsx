@@ -1,6 +1,7 @@
-import { View, Text, Image, TouchableOpacity,} from 'react-native'
+import { Image, TouchableOpacity,} from 'react-native'
 import React from 'react'
 import { FontAwesome6 } from '@expo/vector-icons'
+import { View, Text } from "@/components/Themed";
 
 type ProductCartType = {
   image: any
@@ -20,10 +21,10 @@ const ProductCard = ({image, title, category, price}: ProductCartType) => {
       <FontAwesome6 size={18} className='p-0 m-0' name="heart" color="white"/>
         </TouchableOpacity>
       </View>
-      <View className='pt-3'>
-        <Text className='font-bold text-md'>{title}</Text>
-        <Text className='text-sm '>{category}</Text>
-        <Text className='text-lg font-bold'>$ {price}</Text>
+      <View className='pt-3 text-primary'>
+        <Text className='font-bold  text-md text-primary'>{title}</Text>
+        <Text className='text-sm text-primary  '>{category}</Text>
+        <Text className='text-lg font-bold text-primary'>$ {price}</Text>
       </View>
     </TouchableOpacity>
   )

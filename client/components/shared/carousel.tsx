@@ -2,7 +2,7 @@ import * as React from "react";
 import { FadeInRight } from "react-native-reanimated";
 import Carousel from "react-native-reanimated-carousel";
 import { SBItem } from "../../components/SBItem";
-import { View } from "react-native";
+import { View } from "@/components/Themed";
 
 type CarouselProps = {
     data: any[],

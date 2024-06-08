@@ -12,6 +12,7 @@ module.exports = {
         input: "hsl(var(--input))",
         slider: "hsl(--slider)",
         shadow: "hsl(224, 9%, 25%)",
+        text: "var(--text)",
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",

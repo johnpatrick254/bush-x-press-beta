@@ -1,7 +1,8 @@
 import React from 'react';
 import { useColorScheme } from "nativewind";
-import { TouchableOpacity, Text, View } from 'react-native';
+import { TouchableOpacity } from 'react-native';
 import { FontAwesome5 } from '@expo/vector-icons';
+import { View, Text } from "@/components/Themed";
 
 
 

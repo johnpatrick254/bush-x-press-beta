@@ -3,7 +3,6 @@ import type { StyleProp, ViewStyle, ViewProps, ImageSourcePropType } from "react
 import { LongPressGestureHandler } from "react-native-gesture-handler";
 import type { AnimatedProps } from "react-native-reanimated";
 import Animated from "react-native-reanimated";
-import { SBTextItem } from "./SBTextItem";
 import CarouselCard from "./shared/CarouselCard";
 
 interface Props extends AnimatedProps<ViewProps> {
