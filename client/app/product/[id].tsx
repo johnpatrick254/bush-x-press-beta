@@ -24,10 +24,10 @@ export default function ProductScreen() {
                 </View>
                 <ScrollView showsVerticalScrollIndicator={false}>
                     <View className={`h-[28rem] mt-1 w-full flex items-center justify-center pb-4 px-5`}>
-                        <Image source={{ uri: image as any }} className='w-full h-full rounded-md' />
+                        <Image source={{ uri: image as any }} className='w-full h-full rounded-md object-contain' />
                     </View>
                     <View className='my-3 px-5 text-primary'>
-                        <Text className='font-bold !text-[3rem] tracking-wide text-primary pb-3 '>{title}</Text>
+                        <Text className='font-bold text-2xl tracking-wide text-primary pb-3 '>{title}</Text>
                         <Text className='italic text-primary pb-3 capitalize' style={{ textTransform: "capitalize" }}>{category}</Text>
                         <Review />
                         <Text className='text-2xl pt-3 font-bold text-primary'>${price}</Text>
