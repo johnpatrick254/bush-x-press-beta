@@ -1,6 +1,7 @@
 import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { Text, View } from 'react-native';
+import { View, Text } from "@/components/Themed";
+
 
 export default function Profile() {
     return (

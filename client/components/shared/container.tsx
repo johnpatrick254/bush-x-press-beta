@@ -1,10 +1,10 @@
-import { View } from 'react-native'
+import { View } from "@/components/Themed";
 import { SafeAreaView } from 'react-native-safe-area-context';
 
 const Container = ({ children }: { children: React.ReactNode }) => {
     return (
         <SafeAreaView style={{ flex: 1 }}>
-            <View className=' flex-1'>
+            <View className=' flex-1 bg-background'>
                 {children}
             </View>
         </SafeAreaView>
