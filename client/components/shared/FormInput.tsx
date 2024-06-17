@@ -1,7 +1,8 @@
 import { View, Text } from "@/components/Themed";
-import React from 'react'
-import { Control, Controller, FieldValues } from 'react-hook-form'
-import { TextInput } from 'react-native'
+import { FontAwesome } from "@expo/vector-icons";
+import React, { useState } from 'react'
+import { Controller } from 'react-hook-form'
+import { TextInput, TouchableOpacity } from 'react-native'
 
 
 type FormInputType = {
@@ -9,25 +10,43 @@ type FormInputType = {
     name: string
     secureTextEntry?: boolean
     placeholder?: string 
+    label: string
 }
 
-const FormInput = ({control, name, ...otherProps}: FormInputType) => {
+const FormInput = ({control, name, label, ...otherProps}: FormInputType) => {
+
+    const [showPassword, setIsShowPassword] = useState(false)
+
+    const isPasswordField = name === 'password' || name === 'confirmPassword'
+
     return (
+        <View className="pb-6">
+        <Text>{label}</Text>
         <Controller
             control={control}
             name={name}
             render={({field: {value, onChange, onBlur}, fieldState: {error}}) => (
                 <>
+                <View className=" h-[60px] bg-white flex-row items-center justify-between p-3 rounded-2xl">
                 <TextInput
                 value={value}
                 onChangeText={onChange}
                 onBlur={onBlur}
+                secureTextEntry={isPasswordField && !showPassword}
                 {...otherProps}
+                className="flex-1 h-[60px]"
                 />
-                {error && <Text>{error.message}</Text>}
+                {
+                    isPasswordField && <TouchableOpacity onPress={() => setIsShowPassword(prev => !prev)}>
+                        {showPassword? <FontAwesome name="eye-slash" size={24} color="black" />: <FontAwesome name="eye" size={24} color="black" />}
+                    </TouchableOpacity>
+                }
+                </View>
+                {error && <Text className="text-red-500 ">{error.message}</Text>}
                 </>
             )}
         />
+        </View>
     )
 }
 

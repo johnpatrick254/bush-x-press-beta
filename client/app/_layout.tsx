@@ -30,25 +30,25 @@ SplashScreen.preventAutoHideAsync();
 
 
 export default function RootLayout() {
-  const [loaded, error] = useFonts({
-    SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
-    ...FontAwesome.font,
-  });
+  // const [loaded, error] = useFonts({
+  //   SpaceMono: require('../assets/fonts/SpaceMono-Regular.ttf'),
+  //   ...FontAwesome.font,
+  // });
 
-  // Expo Router uses Error Boundaries to catch errors in the navigation tree.
-  useEffect(() => {
-    if (error) throw error;
-  }, [error]);
+  // // Expo Router uses Error Boundaries to catch errors in the navigation tree.
+  // useEffect(() => {
+  //   if (error) throw error;
+  // }, [error]);
 
-  useEffect(() => {
-    if (loaded) {
-      SplashScreen.hideAsync();
-    }
-  }, [loaded]);
+  // useEffect(() => {
+  //   if (loaded) {
+  //     SplashScreen.hideAsync();
+  //   }
+  // }, [loaded]);
 
-  if (!loaded) {
-    return null;
-  }
+  // if (!loaded) {
+  //   return null;
+  // }
 
   return <RootLayoutNav />;
 }
@@ -61,6 +61,8 @@ function RootLayoutNav() {
       <GestureHandlerRootView>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
+        <Stack.Screen name="(auths)/login/index" options={{ headerShown: false }} />
+        <Stack.Screen name="(auths)/register/index" options={{ headerShown: false }} />
         <Stack.Screen name="products/[filter]" options={{ headerShown: false }} />
         <Stack.Screen name="product/[id]" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
