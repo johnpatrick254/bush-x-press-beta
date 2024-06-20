@@ -10,6 +10,7 @@ import { z } from 'zod'
 import Button from '@/components/shared/Button'
 import { Link } from 'expo-router'
 import { useColorScheme } from 'nativewind'
+import { signUp } from '@/services/auths'
 
 const Register = () => {
 
@@ -37,9 +38,9 @@ const Register = () => {
     resolver: zodResolver(formSchema)
   })
 
-  const onSubmit = (data: any) => {
+  const onSubmit = async(data: any) => {
     const validatedData = formSchema.parse(data)
-    console.log(validatedData)
+    await signUp(validatedData)
   }
 
   return (

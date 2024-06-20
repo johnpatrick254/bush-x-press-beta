@@ -9,6 +9,7 @@ import { SafeAreaView } from 'react-native-safe-area-context';
 import { FontAwesome } from '@expo/vector-icons';
 import { Link } from 'expo-router';
 import { useColorScheme } from 'nativewind';
+import { signIn } from '@/services/auths';
 
 
 const Login = () => {
@@ -20,7 +21,7 @@ const Login = () => {
     password: z.string().min(8, 'Password must be at least 8 characters')
   })
 
-  const {control, handleSubmit} = useForm({
+  const {control, handleSubmit, reset} = useForm({
     defaultValues: {
       email: '',
       password: ''
@@ -28,9 +29,14 @@ const Login = () => {
     resolver: zodResolver(formSchema)
   })
 
-  const onSubmit = (data: any) => {
-    const validatedData = formSchema.parse(data);
-    console.log(validatedData)
+  const onSubmit = async(data: any) => {
+    try{
+      const validatedData = formSchema.parse(data);
+      await signIn(validatedData)
+      reset()
+    }catch(error){
+      console.log(error)
+    }
   }
 
   return (
