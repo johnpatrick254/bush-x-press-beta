@@ -27,7 +27,7 @@ const Register = () => {
     path: ['confirmPassword'],
   })
 
-  const {control, handleSubmit} = useForm({
+  const {control, handleSubmit, reset} = useForm({
     defaultValues: {
       firstName: '',
       lastName: '',
@@ -41,6 +41,7 @@ const Register = () => {
   const onSubmit = async(data: any) => {
     const validatedData = formSchema.parse(data)
     await signUp(validatedData)
+    reset()
   }
 
   return (

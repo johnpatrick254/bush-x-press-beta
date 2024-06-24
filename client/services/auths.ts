@@ -2,16 +2,17 @@ import {initializeApp} from "firebase/app";
 import ReactNativeAsyncStorage from '@react-native-async-storage/async-storage';
 import { createUserWithEmailAndPassword, getReactNativePersistence, initializeAuth, signInWithEmailAndPassword, signOut} from "firebase/auth";
 import AsyncStorage from "@react-native-async-storage/async-storage";
+
+
 const firebaseConfig = {
-  apiKey: "AIzaSyCoeb0z0BbCAfc0kMGD1lqhbl6P3TA6rt8",
-  authDomain: "bush-xpress.firebaseapp.com",
-  projectId: "bush-xpress",
-  storageBucket: "bush-xpress.appspot.com",
-  messagingSenderId: "393304015403",
-  appId: "1:393304015403:web:f4a2c8c3a26ca75526a06e",
-  measurementId: "G-G6V1RPE95T"
+  apiKey: process.env.EXPO_PUBLIC_FIREBASE_API_KEY,
+  authDomain: process.env.EXPO_PUBLIC_FIREBASE_AUTH_DOMAIN,
+  projectId: process.env.EXPO_PUBLIC_FIREBASE_PROJECT_ID,
+  storageBucket: process.env.EXPO_PUBLIC_FIREBASE_STORAGE_BUCKETS,
+  messagingSenderId: process.env.EXPO_PUBLIC_FIREBASE_MESSAGING_SENDER_ID,
+  appId: process.env.EXPO_PUBLIC_FIREBASE_APP_ID,
+  measurementId: process.env.EXPO_PUBLIC_FIREBASE_MEASUREMENT_ID
 };
-const app = initializeApp(firebaseConfig);
 
 type  SigninType = {
     email: string
@@ -23,6 +24,8 @@ type SignUpType = {
   email: string
   password: string
 }
+
+const app = initializeApp(firebaseConfig)
 
 export const auth = initializeAuth(app, { persistence: getReactNativePersistence(ReactNativeAsyncStorage) });
 
