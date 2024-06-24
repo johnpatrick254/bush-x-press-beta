@@ -84,7 +84,7 @@ const Register = () => {
       label='Confirm Password'
       />
       <Button
-      label = 'Login'
+      label = 'Sign Up'
       handleSubmit={handleSubmit(onSubmit)}
       />
       <View className='flex-row gap-1 justify-center pt-2'>

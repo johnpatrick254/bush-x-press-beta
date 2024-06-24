@@ -56,12 +56,12 @@ const Login = () => {
       <FormInput
       control={control}
       name={'password'}
-      placeholder='placeholder'
+      placeholder='Password'
       label='Password'
       />
       <Link href='#'><Text>Forget Password?</Text></Link>
       <Button
-      label = 'Login'
+      label = 'Sign In'
       handleSubmit={handleSubmit(onSubmit)}
       />
       <View className='flex-row gap-1 justify-center pt-2'>
