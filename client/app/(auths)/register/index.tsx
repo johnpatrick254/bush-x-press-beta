@@ -47,7 +47,7 @@ const Register = () => {
   return (
     <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false} className='my-5'>
-      <View className='w-full h-full justify-center p-3'>
+      <View className='w-full h-full justify-center p-6'>
       <View className='items-center gap-3 mb-6'>
       <FontAwesome name="diamond" size={50} color={colorScheme ==='light'? 'black' : 'white'} />
       <Text className="text-primary text-center text-3xl font-bold">Welcome</Text>
@@ -89,7 +89,7 @@ const Register = () => {
       />
       <View className='flex-row gap-1 justify-center pt-2'>
       <Text>Already have an account?</Text>
-      <Link href='/login' className='font-bold'><Text>Sign In</Text></Link>
+            <Link href='/login' className='font-bold'><Text className='font-bold'>Sign In</Text></Link>
       </View>
       </View>
       </ScrollView>

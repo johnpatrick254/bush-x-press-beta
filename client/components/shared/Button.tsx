@@ -11,9 +11,9 @@ const Button = ({label, handleSubmit}: btnProps) => {
   return (
     <TouchableOpacity 
     onPress={handleSubmit}
-    className='bg-white h-[60px] justify-center rounded-2xl mt-5'
+    className='bg-card h-[55px] justify-center rounded-2xl mt-5'
     >
-        <Text className='text-center'>{label}</Text>
+        <Text className='text-center font-bold'>{label}</Text>
     </TouchableOpacity>
   )
 }
