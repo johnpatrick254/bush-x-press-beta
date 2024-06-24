@@ -11,9 +11,10 @@ type FormInputType = {
     secureTextEntry?: boolean
     placeholder?: string 
     label: string
+    placeholderColor: string
 }
 
-const FormInput = ({control, name, label, ...otherProps}: FormInputType) => {
+const FormInput = ({control, name, label, placeholderColor, ...otherProps}: FormInputType) => {
 
     const [showPassword, setIsShowPassword] = useState(false)
 
@@ -33,12 +34,13 @@ const FormInput = ({control, name, label, ...otherProps}: FormInputType) => {
                 onChangeText={onChange}
                 onBlur={onBlur}
                 secureTextEntry={isPasswordField && !showPassword}
+                placeholderTextColor={placeholderColor}
                 {...otherProps}
                 className="flex-1 h-[60px] bg-card text-primary"
                 />
                 {
                     isPasswordField && <TouchableOpacity onPress={() => setIsShowPassword(prev => !prev)}>
-                        {showPassword? <FontAwesome name="eye-slash" size={24} color="black" />: <FontAwesome name="eye" size={24} color="black" />}
+                        <FontAwesome name={showPassword? "eye-slash" : "eye"} size={24} color={placeholderColor} />
                     </TouchableOpacity>
                 }
                 </View>

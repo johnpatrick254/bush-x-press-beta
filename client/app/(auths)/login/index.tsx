@@ -50,14 +50,16 @@ const Login = () => {
         <FormInput
           control={control}
           name={'email'}
-          placeholder="email"
+          placeholder="Enter your email"
           label='Email'
+          placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
         />
         <FormInput
           control={control}
           name={'password'}
-          placeholder='Password'
+          placeholder='Enter your password'
           label='Password'
+          placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
         />
         <Link href='#'><Text className='font-semibold'>Forget Password?</Text></Link>
         <Button

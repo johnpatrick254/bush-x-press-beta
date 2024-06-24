@@ -56,32 +56,37 @@ const Register = () => {
       <FormInput
       control={control}
       name='firstName'
-      placeholder='First name'
+      placeholder='Enter your first name'
       label='First name'
+      placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
       />
       <FormInput
       control={control}
       name='lastName'
-      placeholder='Last name'
+      placeholder='Enter your last name'
       label='Last name'
+      placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
       />
       <FormInput
       control={control}
       name='email'
-      placeholder='Email'
+      placeholder='Enter your email'
       label='Email'
+      placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
       />
       <FormInput
       control={control}
       name='password'
-      placeholder='Password'
+      placeholder='Enter password'
       label='Password'
+      placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
       />
       <FormInput
       control={control}
       name='confirmPassword'
-      placeholder='Confirm password'
+      placeholder='Retype the password'
       label='Confirm Password'
+      placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
       />
       <Button
       label = 'Sign Up'
