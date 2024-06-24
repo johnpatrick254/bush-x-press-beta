@@ -24,16 +24,12 @@ export function useThemeColor(
   return Colors[theme ?? 'light'];  
 }
 
-export function Text(props: TextProps) {
- 
+export function Text({className,...props}: TextProps) {
   const theme = useThemeColor();
-
-  return <DefaultText style={theme} className='text-primary' {...props} />;
+  return <DefaultText style={theme} className={`text-primary ${className}`} {...props} />;
 }
 
 export function View(props: ViewProps) {
-
   const theme = useThemeColor();
-
   return <DefaultView style={theme} {...props} />;
 }
