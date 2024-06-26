@@ -11,9 +11,10 @@ type FormInputType = {
     secureTextEntry?: boolean
     placeholder?: string 
     label: string
+    placeholderColor: string
 }
 
-const FormInput = ({control, name, label, ...otherProps}: FormInputType) => {
+const FormInput = ({control, name, label, placeholderColor, ...otherProps}: FormInputType) => {
 
     const [showPassword, setIsShowPassword] = useState(false)
 
@@ -21,24 +22,25 @@ const FormInput = ({control, name, label, ...otherProps}: FormInputType) => {
 
     return (
         <View className="pb-6">
-        <Text>{label}</Text>
+        <Text className="pb-2 font-bold text-lg">{label}</Text>
         <Controller
             control={control}
             name={name}
             render={({field: {value, onChange, onBlur}, fieldState: {error}}) => (
                 <>
-                <View className=" h-[60px] bg-white flex-row items-center justify-between p-3 rounded-2xl">
+                <View className=" h-[60px] bg-card flex-row items-center justify-between p-3 rounded-2xl">
                 <TextInput
                 value={value}
                 onChangeText={onChange}
                 onBlur={onBlur}
                 secureTextEntry={isPasswordField && !showPassword}
+                placeholderTextColor={placeholderColor}
                 {...otherProps}
-                className="flex-1 h-[60px]"
+                className="flex-1 h-[60px] bg-card text-primary"
                 />
                 {
                     isPasswordField && <TouchableOpacity onPress={() => setIsShowPassword(prev => !prev)}>
-                        {showPassword? <FontAwesome name="eye-slash" size={24} color="black" />: <FontAwesome name="eye" size={24} color="black" />}
+                        <FontAwesome name={showPassword? "eye-slash" : "eye"} size={24} color={placeholderColor} />
                     </TouchableOpacity>
                 }
                 </View>

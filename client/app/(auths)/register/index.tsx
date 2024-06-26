@@ -47,7 +47,7 @@ const Register = () => {
   return (
     <SafeAreaView>
       <ScrollView showsVerticalScrollIndicator={false} className='my-5'>
-      <View className='w-full h-full justify-center p-3'>
+      <View className='w-full h-full justify-center p-6'>
       <View className='items-center gap-3 mb-6'>
       <FontAwesome name="diamond" size={50} color={colorScheme ==='light'? 'black' : 'white'} />
       <Text className="text-primary text-center text-3xl font-bold">Welcome</Text>
@@ -56,32 +56,37 @@ const Register = () => {
       <FormInput
       control={control}
       name='firstName'
-      placeholder='First name'
+      placeholder='Enter your first name'
       label='First name'
+      placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
       />
       <FormInput
       control={control}
       name='lastName'
-      placeholder='Last name'
+      placeholder='Enter your last name'
       label='Last name'
+      placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
       />
       <FormInput
       control={control}
       name='email'
-      placeholder='Email'
+      placeholder='Enter your email'
       label='Email'
+      placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
       />
       <FormInput
       control={control}
       name='password'
-      placeholder='Password'
+      placeholder='Enter password'
       label='Password'
+      placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
       />
       <FormInput
       control={control}
       name='confirmPassword'
-      placeholder='Confirm password'
+      placeholder='Retype the password'
       label='Confirm Password'
+      placeholderColor={colorScheme === 'light'? '#808080' : '#bfbfbf'}
       />
       <Button
       label = 'Sign Up'
@@ -89,7 +94,7 @@ const Register = () => {
       />
       <View className='flex-row gap-1 justify-center pt-2'>
       <Text>Already have an account?</Text>
-      <Link href='/login' className='font-bold'><Text>Sign In</Text></Link>
+            <Link href='/login' className='font-bold'><Text className='font-bold'>Sign In</Text></Link>
       </View>
       </View>
       </ScrollView>

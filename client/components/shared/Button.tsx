@@ -3,17 +3,17 @@ import React from 'react'
 import { Text } from '../Themed'
 
 type btnProps = {
-    label: string
-    handleSubmit: () => void
+  label: string
+  handleSubmit: () => void
 }
 
-const Button = ({label, handleSubmit}: btnProps) => {
+const Button = ({ label, handleSubmit }: btnProps) => {
   return (
-    <TouchableOpacity 
-    onPress={handleSubmit}
-    className='bg-white h-[60px] justify-center rounded-2xl mt-5'
+    <TouchableOpacity
+      onPress={handleSubmit}
+      className='bg-card h-[55px] justify-center rounded-2xl mt-5'
     >
-        <Text className='text-center'>{label}</Text>
+      <Text className='text-center font-bold'>{label}</Text>
     </TouchableOpacity>
   )
 }
