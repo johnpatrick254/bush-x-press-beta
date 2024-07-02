@@ -8,11 +8,12 @@ import 'react-native-reanimated';
 import "../global.css";
 import {GestureHandlerRootView} from "react-native-gesture-handler"
 import { useColorScheme } from "nativewind";
-
+import { Provider } from 'react-redux'
 
 // Import your global CSS file
 import "../global.css"
 import { AuthProvider } from '@/providers/authProvider';
+import { store } from '@/providers/store';
 
 export {
   // Catch any errors thrown by the Layout component.
@@ -58,6 +59,7 @@ function RootLayoutNav() {
   return (
     <ThemeProvider value={colorScheme === 'dark' ? DarkTheme : DefaultTheme}>
       <AuthProvider>
+        <Provider store={store}>
       <GestureHandlerRootView>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
@@ -68,6 +70,7 @@ function RootLayoutNav() {
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
       </GestureHandlerRootView>
+        </Provider>
       </AuthProvider>
     </ThemeProvider>
   );

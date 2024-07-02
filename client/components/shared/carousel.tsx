@@ -53,9 +53,9 @@ const CustomCarousel: React.FC<CarouselProps> = ({
                 }}
                 customConfig={() => ({ type: "positive", viewCount })}
                 onSnapToItem={onSnapToItem}
-                renderItem={({ item, index }) => (
-                    <SBItem
-                        url={item.url}
+                renderItem={({ item, index }) => {
+                    return <SBItem
+                        url={item.image}
                         key={index}
                         width={width}
                         height={width}
@@ -63,7 +63,8 @@ const CustomCarousel: React.FC<CarouselProps> = ({
                             (viewCount - index) * 100,
                         ).duration(200)}
                     />
-                )}
+                }
+                }
             />
             <View className="flex-row justify-center mt-2">
                 {data.map((_, index) => (
