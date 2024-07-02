@@ -20,9 +20,12 @@ export const productAPI = productsAPI.enhanceEndpoints({addTagTypes:['products']
                 query: ({ offset = 0, limit = 4, category = null }) => ({ url: `/products?offset=${offset}&limit=${limit}&categoryId=${category}`})
                 ,
                 providesTags:['products']
+            }),
+            fetchProduct: builder.query<ProductProps, string>({
+                query: (id) => ({url: `/products/${id}`})
             })
         }
     )
 });
 
-export const {useFetchProductsQuery} =productAPI;
+export const {useFetchProductsQuery, useFetchProductQuery} =productAPI;
