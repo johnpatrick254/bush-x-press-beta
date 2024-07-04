@@ -6,30 +6,27 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import men from "../../assets/images/2151044509.jpg"
 import { Link } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
+import { useAppSelector } from "@/providers/Hook";
 
 export default function Cart() {
 
-  const data: any = [
-    {image: men, title: 'Cowboy hat', description: 'Finest quality', qty: 5, price: 50},
-    {image: men, title: 'Cowboy hat', description: 'Finest quality', qty: 5, price: 50},
-    {image: men, title: 'Cowboy hat', description: 'Finest quality', qty: 5, price: 50},
-  ]
+  const cartItems = useAppSelector(state => state.cart.cartItems)
+  console.log(cartItems)
 
   const renderItem = ({item}: any) => {
     return(
       <View className="flex-row justify-between mt-5">
         <View className="flex-row gap-3">
-          <Image source={item.image} className="w-[100px] h-[100px] rounded-xl" />
+            <Image source={{uri: item.images[0]}} className="w-[100px] h-[100px] rounded-xl" />
           <View className="justify-between">
             <View className="justify-between">
               <Text className="font-bold font-lg max-w-[70%]">{item.title}</Text>
-              <Text>{item.description}</Text>
             </View>
             <View className="flex-row bg-[#e0e0e0] justify-evenly items-center rounded-xl">
               <TouchableOpacity>
               <AntDesign name="minus" size={20} color="black" />
                 </TouchableOpacity>
-              <Text className="text-xl">{item.qty}</Text>
+              <Text className="text-xl">{item.itemQty}</Text>
               <TouchableOpacity>
               <AntDesign name="plus" size={20} color="black" />
                 </TouchableOpacity>
@@ -68,7 +65,7 @@ export default function Cart() {
   return (
     <View className="flex-1 px-3">
       <FlatList
-    data={data}
+    data={cartItems}
     keyExtractor={item => item.id}
     renderItem={renderItem}
     ListHeaderComponent={headerItem}
