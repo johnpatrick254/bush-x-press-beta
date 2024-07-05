@@ -9,6 +9,7 @@ import "../global.css";
 import {GestureHandlerRootView} from "react-native-gesture-handler"
 import { useColorScheme } from "nativewind";
 import { Provider } from 'react-redux'
+import { RootSiblingParent } from 'react-native-root-siblings';
 
 // Import your global CSS file
 import "../global.css"
@@ -61,6 +62,7 @@ function RootLayoutNav() {
       <AuthProvider>
         <Provider store={store}>
       <GestureHandlerRootView>
+      <RootSiblingParent>
       <Stack>
         <Stack.Screen name="(tabs)" options={{ headerShown: false }} />
         <Stack.Screen name="(auths)/login/index" options={{ headerShown: false }} />
@@ -69,6 +71,7 @@ function RootLayoutNav() {
         <Stack.Screen name="product/[id]" options={{ headerShown: false }} />
         <Stack.Screen name="modal" options={{ presentation: 'modal' }} />
       </Stack>
+      </RootSiblingParent>
       </GestureHandlerRootView>
         </Provider>
       </AuthProvider>

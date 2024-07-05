@@ -8,7 +8,8 @@ import Review from "@/components/shared/review";
 import { ScrollView } from "react-native-gesture-handler";
 import { useFetchProductQuery } from "@/providers/api/products.slice";
 import { useAppDispatch } from "@/providers/Hook";
-import { getCart, getCartItems } from "@/providers/slice/cartSlice";
+import { addCart, getCartItems } from "@/providers/slice/cartSlice";
+import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function ProductScreen() {
 
@@ -20,9 +21,22 @@ export default function ProductScreen() {
 
   const { colorScheme } = useColorScheme();
 
+  const data = async () => {
+    try {
+      const result = await AsyncStorage.getItem("cartItem");
+      return result ? JSON.parse(result) : null;
+    } catch (error) {
+      console.error("Error getting cart items from AsyncStorage:", error);
+      return null;
+    }
+  };
+
+  const result = data()
+
+
   const handlePress = () => {
     try{
-      dispatch(getCart(item))
+      dispatch(addCart(item))
       getCartItems()
     }catch(error){
         return error
