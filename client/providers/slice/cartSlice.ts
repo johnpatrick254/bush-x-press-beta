@@ -30,13 +30,17 @@ interface initialStateType {
     isLoading: boolean
     error: string | null
     isRemoveCartItem: boolean
+    cartQty: number
+    totalPrice: number
 }
 
 const initialState: initialStateType = {
     cartItems: [],
     isLoading: false,
     error: null,
-    isRemoveCartItem: true
+    isRemoveCartItem: false,
+    cartQty: 0,
+    totalPrice: 0
 }
 console.log(initialState.cartItems)
 const cartSlice = createSlice({
@@ -81,6 +85,14 @@ const cartSlice = createSlice({
             Toast.show(`${action.payload.title} removed from cart`, {
                 duration: Toast.durations.LONG,
               })
+        },
+        getCartQty(state){
+            const cartQty = state.cartItems.reduce((total, value) => total + value.itemQty, 0);
+            state.cartQty = cartQty;
+        },
+        getTotalPrice(state){
+            const totalPrice = state.cartItems.reduce((total, value) => total + (value.itemQty * value.price), 0)
+            state.totalPrice = totalPrice
         }
     },
     extraReducers: (builder) => {
@@ -100,4 +112,4 @@ const cartSlice = createSlice({
 })
 
 export default cartSlice.reducer
-export const {addCart, getDecrement, getIncrement, getIsRemoveItem, getDelete} = cartSlice.actions
+export const {addCart, getDecrement, getIncrement, getIsRemoveItem, getDelete, getCartQty, getTotalPrice} = cartSlice.actions

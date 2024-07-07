@@ -3,17 +3,19 @@ import { StatusBar } from "expo-status-bar";
 import { View, Text } from "@/components/Themed";
 import { FlatList, Image, Modal, TouchableOpacity } from "react-native";
 import { SafeAreaView } from "react-native-safe-area-context";
-import men from "../../assets/images/2151044509.jpg";
+import emptyCart from "../../assets/images/2222.jpg";
 import { Link } from "expo-router";
 import { AntDesign } from "@expo/vector-icons";
 import { useAppDispatch, useAppSelector } from "@/providers/Hook";
 import {
   ItemType,
   getCartItems,
+  getCartQty,
   getDecrement,
   getDelete,
   getIncrement,
   getIsRemoveItem,
+  getTotalPrice,
 } from "@/providers/slice/cartSlice";
 
 export default function Cart() {
@@ -22,17 +24,22 @@ export default function Cart() {
   const [selected, setSelected] = useState<ItemType | null>(null)
 
   const cartItems = useAppSelector((state) => state.cart.cartItems);
+  const totalPrice = useAppSelector((state) => state.cart.totalPrice)
   const isRemoveCartItem = useAppSelector(
     (state) => state.cart.isRemoveCartItem
   );
 
   const handleIncrement = (item: ItemType) => {
     dispatch(getIncrement(item));
+    dispatch(getCartQty())
+    dispatch(getTotalPrice())
   };
 
   const handleDecrement = (item: ItemType) => {
-    dispatch(getDecrement(item));
     item.itemQty === 1 && setSelected(item)
+    dispatch(getDecrement(item));
+    dispatch(getCartQty())
+    dispatch(getTotalPrice())
   };
 
   const onDelete = (item: ItemType) => {
@@ -46,6 +53,8 @@ export default function Cart() {
       dispatch(getDelete(selected))
     )
     setSelected(null)
+    dispatch(getCartQty())
+    dispatch(getTotalPrice())
   }
   const handleCancel = () => {
     dispatch(getIsRemoveItem())
@@ -54,16 +63,17 @@ export default function Cart() {
 
   const renderItem = ({ item }: any) => {
     const imageUrl = item.images?.[0];
+    console.log(item)
     return (
-      <View className="flex-row justify-between mt-5 w-full">
-        <View className="flex-row gap-3">
+      <View className="flex-row justify-between mt-7 w-full">
+        <View className="flex-row gap-3 flex-1">
           <Image
-            source={{ uri: imageUrl }}
+            source={{uri: imageUrl}}
             className="w-[100px] h-[120px] rounded-xl"
           />
           <View className="justify-between">
             <View className="justify-between">
-              <Text className="font-bold font-lg max-w-[70%]">
+              <Text className="font-bold font-lg w-[150px]">
                 {item.title}
               </Text>
               <Text className="font-bold text-lg color-[#b0b0b0]">
@@ -74,18 +84,18 @@ export default function Cart() {
               <TouchableOpacity onPress={() => handleDecrement(item)}>
                 <AntDesign name="minus" size={20} color="black" />
               </TouchableOpacity>
-              <Text className="text-xl">{item.itemQty}</Text>
+              <Text className="text-xl text-[#333]">{item.itemQty}</Text>
               <TouchableOpacity onPress={() => handleIncrement(item)}>
                 <AntDesign name="plus" size={20} color="black" />
               </TouchableOpacity>
             </View>
           </View>
         </View>
-        <View className="justify-between">
+        <View className="justify-between ">
           <Text className="font-bold text-lg">
             ${(item.price * item.itemQty).toFixed(2)}
           </Text>
-          <TouchableOpacity onPress={() => onDelete(item)}><Text className="">Delete</Text></TouchableOpacity>
+          <TouchableOpacity onPress={() => onDelete(item)}><Text className="text-right text-red-400 font-bold text-sm">Delete</Text></TouchableOpacity>
         </View>
       </View>
     );
@@ -94,20 +104,20 @@ export default function Cart() {
   const headerItem = () => {
     return (
       <View className="items-center">
-        <Text className="font-bold text-2xl">Order</Text>
+        <Text className="font-bold text-3xl">Cart Items</Text>
       </View>
     );
   };
 
   const footerItem = () => {
     return (
-      <View className="my-5">
+      <View className="my-5 pt-5">
         <View className="flex-row justify-between">
           <Text className="font-bold text-xl">Subtotal</Text>
-          <Text className="font-bold text-xl">$1500.00</Text>
+          <Text className="font-bold text-xl">${totalPrice.toFixed(2)}</Text>
         </View>
-        <TouchableOpacity className="border border-[#e0e0e0] items-center justify-center rounded-lg h-[60px] mt-3">
-          <Link href="">Continue</Link>
+        <TouchableOpacity className="border border-[#888] items-center justify-center rounded-lg h-[60px] mt-3">
+          <Link href=""><Text>Continue</Text></Link>
         </TouchableOpacity>
       </View>
     );
@@ -116,9 +126,9 @@ export default function Cart() {
   const renderModel = () => {
     return (
       <View className="h-full items-center justify-center" style={{backgroundColor:'#00000080'}}>
-        <View className=" bg-[#e0e0e0] px-3 py-4 rounded-xl">
-          <View className="items-center">
-            <Text className="text-2xl font-bold">Remove Item!</Text>
+        <View className=" bg-[#fff] px-3 py-7 rounded-xl">
+          <View className="items-center mb-5">
+            <Text className="text-2xl font-bold text-red-500 mb-2">Remove Item!</Text>
             <Text>Do you really want to remove the item from cart?</Text>
           </View>
           <View className="flex-row gap-4 mt-5">
@@ -136,7 +146,9 @@ export default function Cart() {
 
   return (
     <SafeAreaView>
-      <Modal
+      {
+        cartItems.length > 0? <>
+        <Modal
         animationType="slide"
         transparent={true}
         visible={isRemoveCartItem}
@@ -152,7 +164,10 @@ export default function Cart() {
           ListFooterComponent={footerItem}
           showsVerticalScrollIndicator={false}
         />
-      </View>
+      </View></> : <View className="h-full items-center justify-center gap-3">
+          <Text className="text-2xl font-bold text-red-300">Cart is empty</Text>
+        </View>
+      }
     </SafeAreaView>
   );
 }

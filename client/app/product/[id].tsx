@@ -8,7 +8,7 @@ import Review from "@/components/shared/review";
 import { ScrollView } from "react-native-gesture-handler";
 import { useFetchProductQuery } from "@/providers/api/products.slice";
 import { useAppDispatch } from "@/providers/Hook";
-import { addCart, getCartItems } from "@/providers/slice/cartSlice";
+import { addCart, getCartItems, getCartQty, getTotalPrice } from "@/providers/slice/cartSlice";
 import AsyncStorage from "@react-native-async-storage/async-storage";
 
 export default function ProductScreen() {
@@ -38,6 +38,8 @@ export default function ProductScreen() {
     try{
       dispatch(addCart(item))
       getCartItems()
+      dispatch(getCartQty())
+      dispatch(getTotalPrice())
     }catch(error){
         return error
     }
