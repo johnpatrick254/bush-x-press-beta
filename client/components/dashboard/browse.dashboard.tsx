@@ -7,6 +7,7 @@ import { Category } from "@/providers/api/category.slice";
 
 export default function ProductBrowser({categories}:{categories:Category[]}) {
   const width = Dimensions.get('window').width -20;
+  
   return (
     <View className="w-full h-max px-5">
       <View className="flex flex-row w-full justify-between items-center  my-md p-xm">

@@ -1,7 +1,7 @@
 import { productsAPI } from "./products-api.reducer";
 
 export type ProductProps = {
-    id?: string,
+    id: string | number,
     category: {
         id:number,
         name:string,
@@ -28,4 +28,4 @@ export const productAPI = productsAPI.enhanceEndpoints({addTagTypes:['products']
     )
 });
 
-export const {useFetchProductsQuery, useFetchProductQuery} =productAPI;
+export const {useFetchProductsQuery, useFetchProductQuery} = productAPI
