@@ -16,7 +16,7 @@ function ProductCategories({ category }: { category: Category }) {
             &&
             <View className='h-max flex flex-1 flex-col w-full px-5'>
                 <View className='w-full'>
-                    <Link asChild href={'/products/popular'} className="flex-row w-full h-max my-md p-xm justify-between items-center">
+                    <Link asChild href={`/products/${category.id}`} className="flex-row w-full h-max my-md p-xm justify-between items-center">
                         <TouchableOpacity>
                             <Text className="text-2xl font-bold text-primary" style={{ textTransform: "capitalize" }}>{category.name}</Text>
                             <Text className="text-xl font-bold text-primary">Show All</Text>
@@ -34,7 +34,7 @@ function ProductCategories({ category }: { category: Category }) {
                                 category={item.category}
                                 price={item.price}
                                 description={item.description}
-                                id={item.id}
+                                id={`${item.id}`}
                             />
                         }
                         )

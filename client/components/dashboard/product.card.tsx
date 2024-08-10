@@ -19,7 +19,9 @@ export type ProductType = {
 }
 
 const ProductCard = ({images, title, category, price,description,id}: ProductType) => {
-
+  const imageURL = images[0].replace(/[\[\]]/g
+  ,'');
+  console.log(imageURL)
   return (
     <Link asChild href={{
       pathname: `/product/${id}`,
@@ -27,7 +29,7 @@ const ProductCard = ({images, title, category, price,description,id}: ProductTyp
     }}>
       <TouchableOpacity style={{width:'47%'}} className='h-[330px] rounded-md bg-background p-2 my-2'>
       <View className='w-full h-52 relative '>
-          <Image source={{ uri: images[2] }} className='w-full h-full object-contain rounded-md'/>
+          <Image source={{ uri:"https://images.pexels.com/photos/312418/pexels-photo-312418.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"} } className='w-full h-full object-contain rounded-md'/>
         <TouchableOpacity className='absolute flex items-center  justify-center top-4 right-4 h-10 w-10 rounded-full p-2 bg-[#e3e3ee42]'>
       <FontAwesome6 size={18} className='p-0 m-0' name="heart" color="white"/>
         </TouchableOpacity>

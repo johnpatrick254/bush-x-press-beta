@@ -9,6 +9,7 @@ import { ActivityIndicator } from 'react-native';
 
 export default function Tab() {
     const { data: categories, isLoading, isError } = useFetchCategoriesQuery(undefined)
+    console.log(categories)
     return (
         <ScrollView showsVerticalScrollIndicator={false}>
             {

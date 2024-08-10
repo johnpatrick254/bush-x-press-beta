@@ -10,7 +10,7 @@ export type Category = {
 export const categoryAPI = productsAPI.injectEndpoints({
 endpoints:(builder)=>({
     fetchCategories:builder.query<Category[],undefined>({
-        query:()=>({url:'categories'})
+        query:()=>({url:'categories?limit=5'})
     })
 })
 })
